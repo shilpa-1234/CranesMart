@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".Activity.ForgetActivity"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:padding="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <ImageView
+                    android:layout_marginBottom="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="85dp"
+                    android:paddingRight="85dp"
+                    android:src="@drawable/logo" />
+                <LinearLayout
+                    android:layout_marginTop="80dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/bgforgot"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"/>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textColor="@color/btnbg"
+                        android:text="Forgot Password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                    <EditText
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/forget1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:backgroundTint="#BAB6B6"
+                        android:ems="10"
+                        android:hint="Enter Your Email or Mobile number"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#999"
+                        android:textSize="15dp" />
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="130dp"
+                        android:layout_height="39dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="80dp"
+                        android:background="@drawable/rectangle"
+                        android:backgroundTint="@color/btnbg"
+                        android:text="Send"
+                        android:textColor="#BAB6B6" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>
