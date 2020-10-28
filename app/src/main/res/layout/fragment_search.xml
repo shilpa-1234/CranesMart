@@ -68,7 +68,7 @@
                 android:textColorHint="#000"
                 android:textColor="#000"
                 android:hint="  search here"
-                android:drawableRight="@drawable/search"
+                android:drawableRight="@mipmap/search"
                 android:layout_marginLeft="45dp"
                 android:layout_marginRight="45dp"
                 android:padding="3dp"

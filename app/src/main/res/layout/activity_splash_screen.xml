@@ -78,16 +78,15 @@
         android:textColor="#d6d5d2"
         android:textSize="12sp" />
     <TextView
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="55dp"
+        android:layout_gravity="bottom"
         android:id="@+id/Create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="bottom"
         android:text="Skip and continue"
         android:textAlignment="center"
         android:textColor="#6E6C6C"
-        android:textSize="10dp" />
+        android:textSize="10sp" />
 
 </LinearLayout>
 </LinearLayout>

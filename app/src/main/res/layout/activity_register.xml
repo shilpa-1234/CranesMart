@@ -3,26 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
-    tools:context=".Activity.RegisterActivity"
     >
-
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="85dp"
-        android:paddingRight="85dp"
-        android:src="@drawable/logo" />
+    <LinearLayout
+        android:background="@drawable/screenbackground"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="85dp"
+            android:paddingRight="85dp"
+            android:src="@drawable/logo" />
         <LinearLayout
+            android:backgroundTint="#00a0e3"
+            android:background="#00a0e3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="5dp"/>
+        <LinearLayout
+            android:background="#124583"
+            android:backgroundTint="#124583"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/bg1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,40 +50,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
->
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:id="@+id/signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/worksans_medium"
+                android:gravity="center_horizontal"
+                android:text="Sign In"
+                android:textAlignment="center"
+                android:textColor="@color/btnbg"
+                android:textSize="20dp"
+                android:textStyle="bold" />
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:fontFamily="@font/worksans_medium"
-            android:textStyle="bold"
-            android:id="@+id/signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
-            android:gravity="center_horizontal"
-            android:text="Sign up"
-            android:textAlignment="center"
-            android:textColor="@color/btnbg"
-            android:textSize="20dp" />
 
-
-        <EditText
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:backgroundTint="#BFBCBC"
+                        android:textColorHint="#777777"
+                        android:id="@+id/prov"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+            <EditText
             android:textSize="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:id="@+id/username1"
-            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawableLeft="@drawable/ic_baseline_permn_identity_24"
             android:hint="Enter Your name"
             android:textColor="#000"
             android:paddingLeft="20dp"
@@ -76,7 +93,14 @@
             android:backgroundTint="#BAB6B6"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-android:textColorHint="#999"/>
+                android:textColorHint="#999"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:backgroundTint="#BFBCBC"
+                        android:textColorHint="#777777"
+                        android:id="@+id/prov0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
         <EditText
             android:layout_marginTop="10dp"
             android:textSize="15dp"
@@ -95,7 +119,13 @@ android:textColorHint="#999"/>
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColorHint="#999"/>
-
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:backgroundTint="#BFBCBC"
+                        android:textColorHint="#777777"
+                        android:id="@+id/prov1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
         <EditText
             android:textSize="15dp"
             android:layout_width="match_parent"
@@ -114,7 +144,13 @@ android:textColorHint="#999"/>
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColorHint="#999"/>
-
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:backgroundTint="#BFBCBC"
+                        android:textColorHint="#777777"
+                        android:id="@+id/prov2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
         <EditText
             android:textSize="15dp"
@@ -135,13 +171,20 @@ android:textColorHint="#999"/>
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColorHint="#999"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:backgroundTint="#BFBCBC"
+                        android:textColorHint="#777777"
+                        android:id="@+id/prov3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
         <EditText
             android:textSize="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:id="@+id/referral"
-            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawableLeft="@drawable/ic_baseline_permn_identity_24"
             android:hint="Enter Your referral"
             android:layout_marginTop="10dp"
             android:textColor="#000"
@@ -152,7 +195,7 @@ android:textColorHint="#999"/>
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColorHint="#999"/>
-
+                    </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:fontFamily="@font/worksans_medium"
@@ -191,7 +234,7 @@ android:textColorHint="#999"/>
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
                 android:text="Already a Member?"
                 android:textAlignment="center"
@@ -210,10 +253,10 @@ android:textColorHint="#999"/>
                 android:textColor="#6e8cb2"
                 android:textSize="15dp" />
         </LinearLayout>
-    </LinearLayout>
+                </LinearLayout>
             </ScrollView>
         </LinearLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </LinearLayout>
+

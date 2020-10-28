@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.cranesmart.APIService;
-import com.example.cranesmart.APIUrl;
+import com.example.cranesmart.Api.Apiused.APIService;
+import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.R;
-import com.example.cranesmart.pojo.forget;
+import com.example.cranesmart.pojo.verfiyforget.forget;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,17 +36,21 @@ Button button;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-forget();
+                if(forget1.getText().toString().isEmpty()){
+                 forget1.getBackground().setColorFilter(getResources().getColor(R.color.red), PorterDuff.Mode.SRC_ATOP);
+                }
+                else{
+                    forget1.getBackground().setColorFilter(getResources().getColor(R.color.gray), PorterDuff.Mode.SRC_ATOP);
+                    forget();
+                    Intent intent=new Intent(ForgetActivity.this, ForgetotpActivity.class);
+                    startActivity(intent);}
             }
         });
     }private void forget() {
 
-        //defining a progress dialog to show while signing up
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-
-        //getting the user values
+        final ProgressDialog progressDialog = ProgressDialog.show(this, null, null, true);
+        progressDialog.setContentView(R.layout.custom_loader);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         String user1 = forget1.getText().toString().trim();
 
@@ -77,11 +84,7 @@ forget();
                 if(Integer.valueOf(response.body().getStatus().toString())==1)
                 {
                     Toast.makeText(ForgetActivity.this, "Enter your otp", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(ForgetActivity.this, ForgetotpActivity.class);
-                    startActivity(intent);
                 }
-                //displaying the message from the response as toast
-                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override

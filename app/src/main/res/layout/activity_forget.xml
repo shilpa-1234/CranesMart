@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
-    tools:context=".Activity.ForgetActivity"
     >
+<LinearLayout
+    android:background="@drawable/screenbackground"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="85dp"
+        android:paddingRight="85dp"
+        android:src="@drawable/logo" />
     <LinearLayout
+        android:backgroundTint="#00a0e3"
+        android:background="#00a0e3"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+    <LinearLayout
+        android:background="#124583"
+        android:backgroundTint="#124583"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+</LinearLayout>
+    <ScrollView
+        android:background="@drawable/bg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+        android:background="@drawable/bg1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,15 +54,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent">
-                <ImageView
-                    android:layout_marginBottom="40dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="85dp"
-                    android:paddingRight="85dp"
-                    android:src="@drawable/logo" />
                 <LinearLayout
-                    android:layout_marginTop="80dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -85,4 +107,5 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+    </ScrollView>
 </LinearLayout>

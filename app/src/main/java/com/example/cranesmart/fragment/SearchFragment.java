@@ -2,6 +2,8 @@ package com.example.cranesmart.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,11 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cranesmart.APIService;
-import com.example.cranesmart.APIUrl;
+import com.example.cranesmart.Api.Apiused.APIService;
+import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.Adapter.ImageAdapter;
 import com.example.cranesmart.R;
-import com.example.cranesmart.pojo.re;
+import com.example.cranesmart.pojo.dashboard.re;
 
 import java.util.ArrayList;
 
@@ -48,16 +50,20 @@ public class SearchFragment extends Fragment {
         mViewPager = view.findViewById(R.id.viewPage);
         itemList = new ArrayList<String>();
         Search();
-     //
+       SharedPreferences preferences=getActivity().getSharedPreferences("Mypref", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putString("statusdash","0");
+                editor.commit();
+                editor.apply();
        return view;
 
     }
     private void Search() {
 
         //defining a progress dialog to show while signing up
-        final ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("loading...");
-        progressDialog.show();
+        final ProgressDialog progressDialog = ProgressDialog.show(getContext(), null, null, true);
+        progressDialog.setContentView(R.layout.custom_loader);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         //getting the user values
 
@@ -110,7 +116,7 @@ public class SearchFragment extends Fragment {
                     adapter.notifyDataSetChanged();*/
                 }
                 //displaying the message from the response as toast
-                Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override

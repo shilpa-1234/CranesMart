@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ ArrayList sliderImageId;
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //        imageView.setImageResource(sliderImageId[position]);
-        Picasso.with(mContext).load(sliderImageId.get(position).toString()).into(imageView);
+        Glide.with(mContext).load(sliderImageId.get(position).toString()).into(imageView);
         ((ViewPager) container).addView(imageView, 0);
         return imageView;
     }

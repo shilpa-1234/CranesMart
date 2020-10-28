@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_gravity="center"
-                        android:src="@drawable/verification"
+                        android:src="@mipmap/verification"
                         android:layout_width="150dp"
                         android:layout_height="70dp"/>
                     <TextView
@@ -56,11 +56,20 @@
                         android:layout_marginTop="10dp"
                         android:textAlignment="center"
                         android:textColor="#BAB4B4"
-                        android:text="Enter OTP code Sent to your number\n '+911234567890"
+                        android:text="Enter OTP code Sent to your number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                    <TextView
+                        android:id="@+id/mobile"
+                        android:textAlignment="center"
+                        android:textColor="#BAB4B4"
+                        android:text="+911234567890"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal" />
                     <com.chaos.view.PinView
+                        android:textCursorDrawable="@color/btnbg"
                         android:layout_marginTop="20dp"
                         android:layout_gravity="center"
                         android:id="@+id/firstPinView"
@@ -76,8 +85,8 @@
                         android:textColor="@color/btnbg"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:cursorColor="#000"
-                        app:cursorWidth="10dp"
+                        app:cursorColor="@color/btnbg"
+                        app:cursorWidth="1dp"
                         app:hideLineWhenFilled="true"
                         app:itemCount="4"
                         app:itemHeight="40dp"

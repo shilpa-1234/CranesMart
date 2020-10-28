@@ -2,7 +2,12 @@ package com.example.cranesmart.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,10 +16,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.cranesmart.APIService;
-import com.example.cranesmart.APIUrl;
+import com.example.cranesmart.Api.Apiused.APIService;
+import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.R;
-import com.example.cranesmart.pojo.register;
+import com.example.cranesmart.pojo.registerlogin.register;
+import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     LinearLayout line;
     Button button;
     EditText username1,mail1,password1,mobile,referral;
+    TextInputLayout prov,prov0,prov1,prov2,prov3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
         password1=findViewById(R.id.password1);
         mobile=findViewById(R.id.mobile);
         referral=findViewById(R.id.referral);
-
+        prov0=findViewById(R.id.prov0);
+        prov1=findViewById(R.id.prov1);
+        prov2=findViewById(R.id.prov2);
+        prov3=findViewById(R.id.prov3);
+        prov=findViewById(R.id.prov);
 
 
 
@@ -56,21 +67,42 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (username1.getText().toString().isEmpty()) {
-                    username1.setError("name");
+                    prov.setError("Field Required");
                 }
                 else if (mail1.getText().toString().isEmpty()) {
-                    mail1.setError("valid mail please");
+                    prov0.setError("Field Required");
+                    prov.setErrorEnabled(false);
+                    prov1.setErrorEnabled(false);
+                    prov2.setErrorEnabled(false);
+                    prov3.setErrorEnabled(false);
                 }
                 else if (password1.getText().toString().isEmpty()) {
-                    password1.setError("write password");
+                    prov1.setError("Field Required");
+                    prov0.setErrorEnabled(false);
+                    prov.setErrorEnabled(false);
+                    prov2.setErrorEnabled(false);
+                    prov3.setErrorEnabled(false);
                 }
                 else if (mobile.getText().toString().isEmpty()) {
-                    mobile.setError("Enter mobile number");
+                    prov2.setError("Field Required");
+                    prov0.setErrorEnabled(false);
+                    prov1.setErrorEnabled(false);
+                    prov.setErrorEnabled(false);
+                    prov3.setErrorEnabled(false);
                 }
                 else if (referral.getText().toString().isEmpty()) {
-                    referral.setError("Enter referral id");
+                    prov3.setError("Field Required");
+                    prov0.setErrorEnabled(false);
+                    prov1.setErrorEnabled(false);
+                    prov2.setErrorEnabled(false);
+                    prov.setErrorEnabled(false);
                 }
                 else {
+                   prov.setErrorEnabled(false);
+                   prov0.setErrorEnabled(false);
+                   prov1.setErrorEnabled(false);
+                   prov2.setErrorEnabled(false);
+                   prov3.setErrorEnabled(false);
                     userSignUp();
 
                 }
@@ -80,36 +112,19 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
     private void userSignUp() {
-
-        //defining a progress dialog to show while signing up
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Signing Up...");
-        progressDialog.show();
-
-        //getting the user values
-
+        final ProgressDialog progressDialog = ProgressDialog.show(this, null, null, true);
+        progressDialog.setContentView(R.layout.custom_loader);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         String user1 = username1.getText().toString().trim();
         String pass1 = password1.getText().toString().trim();
         String email1 = mail1.getText().toString().trim();
         String mobile1 = mobile.getText().toString().trim();
         String referral1=referral.getText().toString().trim();
-
-
-
-        //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(APIUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-
-        //Defining retrofit api service
         APIService service = retrofit.create(APIService.class);
-
-        //Defining the user object as we need to pass it with the call
-        // User user = new User(name, email, password, gender);
-
-        //defining the call
         Call<register> call = service.createUser(
                 user1,
                 email1,
@@ -124,17 +139,25 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(Call<register> call, Response<register> response) {
                 //hiding progress dialog
                 progressDialog.dismiss();
-                Log.d("@@",response.body().getMessage().toString());
-                int d = Log.d("@@", response.body().getStatus().toString());
-                if(Integer.valueOf(response.body().getStatus().toString())==1)
-                {
+                SharedPreferences pref = getSharedPreferences("MyPref", Context.MODE_PRIVATE); // 0 - for private mode
+                SharedPreferences.Editor editor = pref.edit();
 
-                    Toast.makeText(RegisterActivity.this, "Sucessfully registered", Toast.LENGTH_SHORT).show();
+                editor.putString("name",username1.getText().toString());
+                editor.putString("mail",mail1.getText().toString());
+                editor.putString("mobile",mobile.getText().toString());
+                editor.putString("password",password1.getText().toString());
+                editor.commit();
+                editor.apply();
+                if(Integer.parseInt(response.body().getStatus().toString())==1)
+                {
                     Intent intent=new Intent(RegisterActivity.this, VerificationActivity.class);
                     startActivity(intent);
+                    Toast.makeText(RegisterActivity.this, "Sucessfully registered", Toast.LENGTH_SHORT).show();
+
                 }
-                //displaying the message from the response as toast
-                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                else if(response.body().getStatus()==0) {
+                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
