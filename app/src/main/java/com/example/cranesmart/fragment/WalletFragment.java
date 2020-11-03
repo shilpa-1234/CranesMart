@@ -1,10 +1,12 @@
 package com.example.cranesmart.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +14,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.cranesmart.Activity.DashboardActivity;
+import com.example.cranesmart.Activity.CranesmartpointActivity;
 import com.example.cranesmart.Api.Apiused.APIService;
 import com.example.cranesmart.Api.Apiused.APIUrl;
+import com.example.cranesmart.Activity.PremiumHistoryFragment;
 import com.example.cranesmart.R;
 import com.example.cranesmart.pojo.Userdetail.UserDetailpojo;
 
@@ -28,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WalletFragment extends Fragment {
 TextView rupees,rupees1,rupees2;
-
+    TextView premiumHistory,cmHistory,upgrademember;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,11 +39,28 @@ TextView rupees,rupees1,rupees2;
         SharedPreferences preferences=getActivity().getSharedPreferences("Mypref", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=preferences.edit();
         editor.putString("statusdash","0");
+        editor.commit();
+        editor.apply();
         rupees=view.findViewById(R.id.rupees);
         rupees1=view.findViewById(R.id.rupees1);
         rupees2=view.findViewById(R.id.rupees2);
-        editor.commit();
-        editor.apply();
+        premiumHistory=view.findViewById(R.id.premiumHistory);
+        cmHistory=view.findViewById(R.id.cmHistory);
+        upgrademember=view.findViewById(R.id.upgrademember);
+        premiumHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getContext(),PremiumHistoryFragment.class);
+                startActivity(i);
+            }
+        });
+        cmHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getContext(), CranesmartpointActivity.class);
+                startActivity(i);
+            }
+        });
         userdetail();
         return  view;
 
@@ -78,5 +97,12 @@ TextView rupees,rupees1,rupees2;
 
 
     }
+    public void fragment_transaction1(FragmentTransaction fragmentTransactionChange, Fragment changeFragment, String tag) {
 
+        fragmentTransactionChange= getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransactionChange.add(R.id.frame, changeFragment,"fragment");
+        fragmentTransactionChange.addToBackStack(null);
+        fragmentTransactionChange.commit();
+
+    }
 }

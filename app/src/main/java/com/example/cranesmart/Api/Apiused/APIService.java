@@ -1,14 +1,19 @@
 package com.example.cranesmart.Api.Apiused;
 
-import android.widget.EditText;
-
+import com.example.cranesmart.Paymentgatewaywallet.paymentpojo;
+import com.example.cranesmart.pojo.Checkoutpojo.Checkoutapi;
+import com.example.cranesmart.pojo.Orderlistpojo.Orderlist;
+import com.example.cranesmart.pojo.PremiumWallethistory.Wallethistory;
+import com.example.cranesmart.pojo.RechargeHistory.Rechargehistorypojo;
 import com.example.cranesmart.pojo.Search.Searchpojo;
 import com.example.cranesmart.pojo.Userdetail.UserDetailpojo;
 import com.example.cranesmart.pojo.address.Addaddress;
 import com.example.cranesmart.pojo.address.Addaddresslist;
 import com.example.cranesmart.pojo.cart.Addcartlist;
 import com.example.cranesmart.pojo.cart.Cartpojo;
+import com.example.cranesmart.pojo.changepassword.Changepassword;
 import com.example.cranesmart.pojo.countrystatelist.Countrypojo;
+import com.example.cranesmart.pojo.cranemartpoint.cranemartpointpojo;
 import com.example.cranesmart.pojo.deletecart.Deletecartpojo;
 import com.example.cranesmart.pojo.deletecart.Deletepojo;
 import com.example.cranesmart.pojo.operatorlist.Commonliststate.Circlelist;
@@ -19,6 +24,7 @@ import com.example.cranesmart.pojo.operatorlist.Landline.Landline;
 import com.example.cranesmart.pojo.operatorlist.Prepaid.Operatorlist;
 import com.example.cranesmart.pojo.operatorlist.otprecharge.Otpmobilerecharge;
 import com.example.cranesmart.pojo.operatorlist.postpaid.operlistpostpaid;
+import com.example.cranesmart.pojo.paymentparametrekey.parametrekey;
 import com.example.cranesmart.pojo.productdetail.Detailpojo;
 import com.example.cranesmart.pojo.address.Editaddresspojo;
 import com.example.cranesmart.pojo.editprofile.Editprofile;
@@ -35,6 +41,9 @@ import com.example.cranesmart.pojo.verfiyforget.forget;
 import com.example.cranesmart.pojo.dashboard.re;
 import com.example.cranesmart.pojo.registerlogin.register;
 import com.example.cranesmart.pojo.updatepassword.reset;
+import com.example.cranesmart.Paymentgatewaywallet.successpaymentpojo;
+
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -89,6 +98,15 @@ public interface APIService {
                 @Field("userID") String userID,
                 @Field("password") String password,
                   @Field("cpassword") String cpassword
+
+        );
+        @FormUrlEncoded
+        @POST("changePassword")
+        Call<Changepassword> change(
+                @Field("userID") String userID,
+                @Field("opw") String opw,
+                  @Field("npw") String npw,
+                  @Field("cpw") String cpw
 
         );
         @GET("dashboardAuth")
@@ -306,6 +324,115 @@ public interface APIService {
         Call<UserDetailpojo> userdetail(
                 @Field
                         ("user_id") String userid
+        );
+        @FormUrlEncoded
+        @POST("getPremiumWalletHistory")
+        Call<Wallethistory> wallet(
+                @Field
+                        ("userID") String userID
+        );
+        @FormUrlEncoded
+        @POST("getPointHistory")
+        Call<cranemartpointpojo> cranes(
+                @Field
+                        ("userID") String userID
+        );
+        @FormUrlEncoded
+        @POST("getRechargeHistory")
+        Call<Rechargehistorypojo> historyrecharge(
+                @Field
+                        ("userID") String userID
+        );
+        @FormUrlEncoded
+        @POST("userOrderData")
+        Call<Orderlist> listorder(
+                @Field
+                        ("userID") String userID
+        );
+        @FormUrlEncoded
+        @POST("paymentSuccessAuth")
+        Call<successpaymentpojo> payment(
+                @Field
+                        ("userID") String userID,
+                @Field
+                        ("amount") String amount,
+                @Field
+                        ("status") String status,
+                @Field
+                        ("txnid") String txnid,
+                @Field
+                        ("hash") String hash,
+                @Field
+                        ("firstname") String firstname,
+                @Field
+                        ("key") String key,
+                @Field
+                        ("productinfo") String productinfo ,
+                @Field
+                        ("email") String email
+
+        );
+        @GET("getPaymentKey")
+        Call<parametrekey> key();
+
+        @FormUrlEncoded
+        @POST("generateHash")
+        Call<paymentpojo> hash(
+                @Field("userID") String userID,
+                @Field("amount") String amount
+
+        );
+        @FormUrlEncoded
+        @POST("paymentFailedAuth")
+        Call<JSONObject> fail(
+                @Field("userID") String userID,
+                @Field("amount") String amount,
+                @Field("status") String status,
+                @Field("txnid") String txnid
+
+        );
+        @FormUrlEncoded
+        @POST("orderAuth")
+        Call<Checkoutapi> order(
+                @Field("userID") String userID,
+                @Field("address_id") String address_id
+
+
+        );
+        @FormUrlEncoded
+        @POST("orderSuccess")
+        Call<JSONObject> paymentorder(
+                @Field
+                        ("userID") String userID,
+                @Field
+                        ("encoded_order_id") String encoded_order_id,
+                @Field
+                        ("amount") String amount,
+                @Field
+                        ("status") String status,
+                @Field
+                        ("txnid") String txnid,
+                @Field
+                        ("hash") String hash,
+                @Field
+                        ("firstname") String firstname,
+                @Field
+                        ("key") String key,
+                @Field
+                        ("productinfo") String productinfo ,
+                @Field
+                        ("email") String email
+
+        );
+        @FormUrlEncoded
+        @POST("orderFailed")
+        Call<JSONObject> failorder(
+                @Field("userID") String userID,
+                @Field("encoded_order_id") String encoded_order_id,
+                @Field("status") String status,
+                @Field("amount") String amount,
+                @Field("txnid") String txnid
+
         );
 }
 

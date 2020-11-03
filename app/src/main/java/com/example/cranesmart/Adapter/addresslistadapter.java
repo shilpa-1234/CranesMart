@@ -1,31 +1,37 @@
 package com.example.cranesmart.Adapter;
 
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.cranesmart.Activity.AddressActivity;
-import com.example.cranesmart.Activity.PaymentActivity;
 import com.example.cranesmart.Api.Apiused.APIService;
 import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.Api.refreshinterface.Adapterinterface;
+import com.example.cranesmart.Paymentgatewaywallet.PaymentShopingActivity;
 import com.example.cranesmart.R;
+import com.example.cranesmart.pojo.Checkoutpojo.Checkoutapi;
 import com.example.cranesmart.pojo.address.Addresslistdatum;
 import com.example.cranesmart.pojo.deletecart.Deletepojo;
 import com.example.cranesmart.pojo.address.Editaddresspojo;
+import com.example.cranesmart.pojo.paymentparametrekey.parametrekey;
 
 import java.util.ArrayList;
 
@@ -47,6 +53,7 @@ public class addresslistadapter extends RecyclerView.Adapter<addresslistadapter.
 
 
 
+
     @Override
     public addresslistadapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.addresslist, viewGroup, false);
@@ -59,7 +66,11 @@ public class addresslistadapter extends RecyclerView.Adapter<addresslistadapter.
 
         viewHolder.personname.setText(product.get(i).getName());
         Log.d("personname", product.get(i).getName());
-        viewHolder.address.setText(product.get(i).getAddress1());
+        viewHolder.address.setText(product.get(i).getAddress1()+" "+product.get(i).getZipCode());
+        viewHolder.mobile.setText(product.get(i).getPhoneNo());
+        viewHolder.city.setText(product.get(i).getCity());
+        viewHolder.State.setText(product.get(i).getState());
+        viewHolder.country.setText(product.get(i).getCountry());
         SharedPreferences pref = context.getSharedPreferences("MyPref", Context.MODE_PRIVATE); // 0 - for private mode
         final SharedPreferences.Editor editor=pref.edit();
         editor.putString("address",viewHolder.address.toString());
@@ -78,8 +89,40 @@ public class addresslistadapter extends RecyclerView.Adapter<addresslistadapter.
         viewHolder.buttoncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(context, PaymentActivity.class);
-                context.startActivity(i);
+                final boolean clicked=false;
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                builder.setCancelable(false);
+
+                final View dialogView= inflater.inflate(R.layout.walletpayoptions, null);
+                builder.setView(dialogView);
+                final RadioButton radio = dialogView.findViewById(R.id.radio);
+                final RadioButton radio1 = dialogView.findViewById(R.id.radio1);
+                Button proceed=dialogView.findViewById(R.id.proceed);
+                proceed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(radio1.isChecked()){
+                            radio.setChecked(false);
+                            radio.setEnabled(false);
+                            checkout();
+                            paymentkey();
+                            Intent i = new Intent(context, PaymentShopingActivity.class);
+                            context.startActivity(i);
+                        }
+                        else if(radio.isChecked()){
+                            radio1.setChecked(false);
+                            radio1.setEnabled(false);
+
+                        }
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.cb_rectangle_round);
+                alertDialog.show();
+
+
             }
         });
         viewHolder.edit.setOnClickListener(new View.OnClickListener() {
@@ -89,10 +132,7 @@ public class addresslistadapter extends RecyclerView.Adapter<addresslistadapter.
                 in.putExtra("postion",i);
                 context.startActivity(in);
                 edit();
-//                viewHolder.personname.setText(product.get(i).getName());
-//                Log.d("personame", product.get(i).getName());
-//                viewHolder.address.setText(product.get(i).getAddress1());
-//                Log.d("personaddres", product.get(i).getAddress1());
+
 
             }
         });
@@ -108,12 +148,16 @@ public class addresslistadapter extends RecyclerView.Adapter<addresslistadapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView personname,address;
+        private TextView personname,address,mobile,city,State,country;
         Button buttoncontinue,edit,delete;
         SwipeRefreshLayout mSwipeRefreshLayout;
         public ViewHolder(View view) {
             super(view);
             personname = view.findViewById(R.id.personname);
+            mobile = view.findViewById(R.id.mobile);
+            city = view.findViewById(R.id.city);
+            State = view.findViewById(R.id.State);
+            country = view.findViewById(R.id.country);
             address = view.findViewById(R.id.address);
             buttoncontinue= view.findViewById(R.id.buttoncontinue);
             edit= view.findViewById(R.id.edit);
@@ -211,5 +255,86 @@ public class addresslistadapter extends RecyclerView.Adapter<addresslistadapter.
 
     }
 
+    private void paymentkey() {
+        final ProgressDialog progressDialog = ProgressDialog.show(context, null, null, true);
+        progressDialog.setContentView(R.layout.custom_loader);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(APIUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        APIService service = retrofit.create(APIService.class);
+        Call<parametrekey> call = service.key(
+        );
+
+        call.enqueue(new Callback<parametrekey>() {
+            @Override
+            public void onResponse(Call<parametrekey> call, Response<parametrekey> response) {
+                Log.d("Sharedpre", String.valueOf(response.body().getStatus()));
+                Log.d("Sharedpre", String.valueOf(response.body().getMessage()));
+                progressDialog.dismiss();
+
+                SharedPreferences pref =context.getSharedPreferences("MyPref", Context.MODE_PRIVATE); // 0 - for private mode
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("merchant_Id", response.body().getData().getPayuMerchantId());
+                editor.putString("merchant_Key", response.body().getData().getPayuMerchantKey());
+                editor.putString("salt", response.body().getData().getPayuMerchantSalt());
+                editor.apply();
+                editor.commit();
+                Log.d("Sharedprefences", String.valueOf(editor));
+
+            }
+
+            @Override
+            public void onFailure(Call<parametrekey> call, Throwable t) {
+
+            }
+
+
+        });
+    }
+    private void checkout() {
+        final ProgressDialog progressDialog = ProgressDialog.show(context, null, null, true);
+        progressDialog.setContentView(R.layout.custom_loader);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        SharedPreferences sh = context.getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        String value = sh.getString("userID", "0");
+        String value1 = sh.getString("addID", "0");
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(APIUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        APIService service = retrofit.create(APIService.class);
+        Call<Checkoutapi> call = service.order(
+                value, value1
+        );
+
+        call.enqueue(new Callback<Checkoutapi>() {
+            @Override
+            public void onResponse(Call<Checkoutapi> call, Response<Checkoutapi> response) {
+                Log.d("Sharedpre", String.valueOf(response.body().getStatus()));
+                Log.d("Sharedpre", String.valueOf(response.body().getMessage()));
+                progressDialog.dismiss();
+
+                SharedPreferences pref = context.getSharedPreferences("MyPref", Context.MODE_PRIVATE); // 0 - for private mode
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("taxation", response.body().getData().getTxnid());
+                editor.putString("hashkeyy", response.body().getData().getHash());
+                editor.putString("amountaddress", response.body().getData().getAmount().toString());
+                editor.putString("Orderid", response.body().getData().getEncodedOrderId());
+                editor.apply();
+                editor.commit();
+            }
+
+            @Override
+            public void onFailure(Call<Checkoutapi> call, Throwable t) {
+
+            }
+
+
+        });
+    }
 }

@@ -47,8 +47,43 @@
                     android:layout_below="@+id/personname"
                     android:id="@+id/address"
                     android:layout_marginTop="5dp"
-                    android:text="78-A, Mahant Swami Marg, corporation bank Govind Nagar, Moti Nagar, Vaishali Nagar, Jaipur, Rajasthan 302021
-"
+                    android:text="78-A, Mahant Swami Marg, corporation bank Govind Nagar, Moti Nagar, Vaishali Nagar, Jaipur, Rajasthan 302021"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textSize="10dp"
+                    android:textColor="#777"
+                    android:layout_below="@+id/address"
+                    android:id="@+id/mobile"
+                    android:layout_marginTop="5dp"
+                    android:text="7728842252"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textSize="10dp"
+                    android:textColor="#777"
+                    android:layout_below="@+id/mobile"
+                    android:id="@+id/city"
+                    android:layout_marginTop="5dp"
+                    android:text="bhilwara"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textSize="10dp"
+                    android:textColor="#777"
+                    android:layout_below="@+id/mobile"
+                    android:id="@+id/State"
+                    android:layout_marginTop="5dp"
+                    android:text="rajasthan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textSize="10dp"
+                    android:textColor="#777"
+                    android:layout_below="@+id/mobile"
+                    android:id="@+id/country"
+                    android:layout_marginTop="5dp"
+                    android:text="india"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             <LinearLayout

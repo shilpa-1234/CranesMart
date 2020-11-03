@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:clickable="true"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:background="@drawable/bg1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingTop="@dimen/dimen_5dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingRight="@dimen/dimen_20dp"
+           >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/passwordbg"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"/>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textColor="@color/btnbg"
+                        android:text="Change Password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" />
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <EditText
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/oldpass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:backgroundTint="#BAB6B6"
+                                android:ems="10"
+                                android:hint="Enter old password"
+                                android:inputType="textEmailAddress"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#000"
+                                android:textColorHint="#999"
+                                android:textSize="15dp" />
+                            <EditText
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:layout_gravity="center"
+                                android:id="@+id/pass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:backgroundTint="#BAB6B6"
+                                android:ems="10"
+                                android:hint="Enter new password"
+                                android:inputType="textEmailAddress"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#000"
+                                android:textColorHint="#999"
+                                android:textSize="15dp" />
+                            <EditText
+                                android:layout_marginBottom="@dimen/dimen_5dp"
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:layout_gravity="center"
+                                android:id="@+id/pass2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:backgroundTint="#BAB6B6"
+                                android:ems="10"
+                                android:hint="Enter your confirm password"
+                                android:inputType="textEmailAddress"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#000"
+                                android:textColorHint="#999"
+                                android:textSize="15dp" />
+                            <Button
+                                android:id="@+id/button"
+                                android:layout_width="130dp"
+                                android:layout_height="39dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="80dp"
+                                android:layout_marginRight="80dp"
+                                android:background="@drawable/rectangle"
+                                android:backgroundTint="@color/btnbg"
+                                android:text="Submit"
+                                android:fontFamily="@font/worksans_medium" />
+                        </LinearLayout>
+
+                    </ScrollView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

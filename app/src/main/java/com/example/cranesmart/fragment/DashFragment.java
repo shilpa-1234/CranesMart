@@ -22,6 +22,7 @@ import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -75,7 +76,8 @@ public class DashFragment extends Fragment {
     private static int NUM_PAGES = 5;
     ImageView a1;
 int i;
-Button search;
+EditText search;
+//Button search;
 DotsIndicator dotsIndicator;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,17 +110,19 @@ DotsIndicator dotsIndicator;
         userSignUp();
         final FragmentTransaction fragmentTransactionProfile = getActivity().getSupportFragmentManager().beginTransaction();
 
-        search.setOnClickListener(new View.OnClickListener() {
+        search.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 Fragment changeFragment=new SearchproductFragment();
                 FragmentTransaction fragmentTransactionChange = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransactionChange.add(R.id.frame, changeFragment,"fragment");
                 fragmentTransactionChange.addToBackStack(null);
                 fragmentTransactionChange.commit();
 
+                return false;
             }
         });
+
         mobile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

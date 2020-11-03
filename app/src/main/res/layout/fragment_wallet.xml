@@ -26,7 +26,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:paddingTop="20dp"
         android:layout_marginTop="20dp"
         android:paddingBottom="20dp"
@@ -83,12 +83,13 @@
     android:layout_marginLeft="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <ImageView
-        android:layout_centerVertical="true"
         android:id="@+id/wallet1"
-        android:src="@mipmap/wallet1"
         android:layout_width="40dp"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/wallet1" />
     <TextView
         android:textStyle="bold"
         android:textSize="10dp"
@@ -119,7 +120,7 @@
         android:layout_alignParentRight="true"
         android:textColor="@android:color/holo_blue_dark"
         android:layout_below="@+id/rupees"
-        android:id="@+id/History"
+        android:id="@+id/premiumHistory"
         android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:text="View History"
@@ -188,7 +189,7 @@
                         android:textColor="@android:color/holo_blue_dark"
                         android:layout_below="@+id/rupees1"
                         android:layout_marginRight="15dp"
-                        android:id="@+id/History1"
+                        android:id="@+id/cmHistory"
                         android:layout_marginTop="5dp"
                         android:text="View History"
                         android:layout_width="wrap_content"
@@ -255,7 +256,7 @@
                         android:textColor="@android:color/holo_blue_dark"
                         android:layout_below="@+id/rupees2"
                         android:layout_marginRight="15dp"
-                        android:id="@+id/upgrade"
+                        android:id="@+id/upgrademember"
                         android:layout_marginTop="5dp"
                         android:text="Upgrade now"
                         android:layout_width="wrap_content"
@@ -266,7 +267,7 @@
         </RelativeLayout>
 
     </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
     </RelativeLayout>
     </RelativeLayout>
     </LinearLayout>

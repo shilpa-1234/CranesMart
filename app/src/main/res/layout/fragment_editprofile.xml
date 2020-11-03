@@ -150,7 +150,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
-                    android:id="@+id/relative3"
+                    android:id="@+id/relative40"
                     android:layout_marginRight="30dp"
                     android:layout_marginLeft="30dp"
                     android:layout_below="@+id/relative2"
@@ -158,15 +158,55 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_marginTop="10dp"
+                        android:id="@+id/address"
+                        android:textColor="#000"
+                        android:text="My Address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/add"
+                        android:textColor="#777"
+                        android:text="add your address here"
+                        android:layout_below="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move0"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:id="@+id/view20"
+                        android:layout_below="@+id/add"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative3"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@+id/relative40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
                         android:id="@+id/returns"
                         android:textColor="#000"
-                        android:text="My Returns"
+                        android:text="My Recharge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/recent"
                         android:textColor="#777"
-                        android:text="view your recent returns"
+                        android:text="view your recent recharge"
                         android:layout_below="@+id/returns"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -199,13 +239,13 @@
                         android:layout_marginTop="10dp"
                         android:id="@+id/cranesmart"
                         android:textColor="#000"
-                        android:text="Cranes Mart"
+                        android:text="Change password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/credits"
                         android:textColor="#777"
-                        android:text="view your cranes mart transaction"
+                        android:text="you can change your password here"
                         android:layout_below="@+id/cranesmart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>

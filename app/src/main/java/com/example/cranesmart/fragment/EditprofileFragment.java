@@ -1,26 +1,18 @@
 package com.example.cranesmart.fragment;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -28,19 +20,13 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.cranesmart.Activity.DashboardActivity;
+import com.example.cranesmart.Activity.AdressmenuActivity;
+import com.example.cranesmart.Activity.OrderActivity;
+import com.example.cranesmart.Activity.RechargeHistoryActivity;
 import com.example.cranesmart.Api.Apiused.APIService;
 import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.R;
 import com.example.cranesmart.pojo.Userdetail.UserDetailpojo;
-import com.squareup.picasso.Picasso;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Calendar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,15 +34,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.media.MediaRecorder.VideoSource.CAMERA;
-
 
 public class EditprofileFragment extends Fragment {
     private static final int GALLERY = 1, CAMERA = 2;
     private static final String IMAGE_DIRECTORY = "/encoded_image";
     Uri myPicture = null;
     ImageView profileimg, viewImage;
-    RelativeLayout relative1;
+    RelativeLayout relative1,relative40,relative2,relative3,relative4,relative5;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,12 +54,48 @@ public class EditprofileFragment extends Fragment {
         editor.apply();
         userdetail();
         relative1=view.findViewById(R.id.relative1);
+        relative2=view.findViewById(R.id.relative2);
+        relative3=view.findViewById(R.id.relative3);
+        relative5=view.findViewById(R.id.relative5);
+        relative4=view.findViewById(R.id.relative4);
+        relative40=view.findViewById(R.id.relative40);
         relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final FragmentTransaction fragmentTransactionProfile =getActivity().getSupportFragmentManager().beginTransaction();
                 Fragment frag1 = new MyprofileFragment();
                 fragment_transaction1(fragmentTransactionProfile, frag1, "profile");
+            }
+        });
+        relative2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentTransaction fragmentTransactionProfile =getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment frag1 = new OrderActivity();
+                fragment_transaction1(fragmentTransactionProfile, frag1, "profile");
+            }
+        });
+        relative3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent intent=new Intent(getContext(), RechargeHistoryActivity.class);
+              startActivity(intent);
+            }
+        });
+        relative4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentTransaction fragmentTransactionProfile =getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment frag1 = new ChangeFragment();
+                fragment_transaction1(fragmentTransactionProfile, frag1, "profile");
+            }
+        });
+
+        relative40.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+           Intent i=new Intent(getContext(), AdressmenuActivity.class);
+           startActivity(i);
             }
         });
         return view;

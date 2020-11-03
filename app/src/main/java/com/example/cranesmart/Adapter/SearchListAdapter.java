@@ -42,7 +42,7 @@ Context context;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.card_list, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.searchrow, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
         context=parent.getContext();
 
@@ -52,8 +52,8 @@ Context context;
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.textView.setText(datalist.get(position).getName());
-        holder.price.setText("Rs"+datalist.get(position).getPrice());
-        Glide.with(context).load(datalist.get(position).getImg().trim()).placeholder(R.drawable.noimage).override(500,500).into(holder.image);
+        holder.price.setText("₹"+" "+datalist.get(position).getPrice());
+        Glide.with(context).load(datalist.get(position).getImg().trim()).placeholder(R.drawable.noimage).into(holder.image);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +106,7 @@ Context context;
         public ViewHolder(View itemView) {
             super(itemView);
             this.wishlist=itemView.findViewById(R.id.wishlist);
-            this.image= itemView.findViewById(R.id.image);
+            this.image= itemView.findViewById(R.id.a2);
             this.textView = (TextView) itemView.findViewById(R.id.tv_name);
             this.price=itemView.findViewById(R.id.price);
 

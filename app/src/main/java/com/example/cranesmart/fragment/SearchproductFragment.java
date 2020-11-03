@@ -117,7 +117,7 @@ public class SearchproductFragment extends Fragment {
                  // use a linear layout manager
                  layoutManager = new LinearLayoutManager(getContext());
                  recyclerviewsubcategory1.setLayoutManager(layoutManager);
-                 GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+                 GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
                  recyclerviewsubcategory1.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
                   mAdapter = new SearchListAdapter(datalist);
                  recyclerviewsubcategory1.setAdapter(mAdapter);

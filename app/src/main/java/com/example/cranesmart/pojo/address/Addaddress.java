@@ -5,9 +5,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Addaddress {
 
+
     @SerializedName("status")
     @Expose
     private Integer status;
+    @SerializedName("address_id")
+    @Expose
+    private Integer addressId;
     @SerializedName("message")
     @Expose
     private String message;
@@ -20,6 +24,14 @@ public class Addaddress {
         this.status = status;
     }
 
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -27,5 +39,4 @@ public class Addaddress {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }

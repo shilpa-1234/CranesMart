@@ -78,7 +78,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity">
+        tools:context=".Paymentgatewaywallet.PaymentActivity">
         <com.google.android.material.tabs.TabLayout
             app:layout_anchorGravity="bottom"
             android:id="@+id/tabLayout"

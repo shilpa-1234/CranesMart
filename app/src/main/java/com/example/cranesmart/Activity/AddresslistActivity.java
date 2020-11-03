@@ -22,6 +22,7 @@ import com.example.cranesmart.Api.Apiused.APIService;
 import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.Api.refreshinterface.Adapterinterface;
 import com.example.cranesmart.R;
+import com.example.cranesmart.pojo.Checkoutpojo.Checkoutapi;
 import com.example.cranesmart.pojo.address.Addaddresslist;
 import com.example.cranesmart.pojo.address.Addresslistdatum;
 
@@ -39,7 +40,6 @@ RelativeLayout relative1;
 RecyclerView recyleaddress;
     RecyclerView.LayoutManager layoutManager;
 ArrayList<Addresslistdatum> product;
-
 ImageView menu;
 int i;
     @Override
@@ -49,7 +49,7 @@ int i;
         product= new ArrayList<>();
         recyleaddress=findViewById(R.id.recyleaddress);
         relative1=findViewById(R.id.relative1);
-     Sizee();
+       Sizee();
         menu=findViewById(R.id.menu);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,12 +65,11 @@ int i;
                 startActivity(i);
             }
         });
-
     }
     private void Addresslist(){
         layoutManager = new LinearLayoutManager(AddresslistActivity.this);
         recyleaddress.setLayoutManager(layoutManager);
-        addresslistadapter adapter = new addresslistadapter(product,this);
+        final addresslistadapter adapter = new addresslistadapter(product,this);
         recyleaddress.setHasFixedSize(true);
         recyleaddress.setAdapter(adapter);
         adapter.notifyDataSetChanged();

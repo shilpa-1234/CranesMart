@@ -10,8 +10,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,14 +24,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,21 +36,16 @@ import com.bumptech.glide.Glide;
 import com.example.cranesmart.Api.Apiused.APIService;
 import com.example.cranesmart.Api.Apiused.APIUrl;
 import com.example.cranesmart.Api.refreshinterface.Backinterface;
-import com.example.cranesmart.fragment.ProductFragment;
-import com.example.cranesmart.fragment.SearchproductFragment;
 import com.example.cranesmart.fragment.EditprofileFragment;
 import com.example.cranesmart.R;
 import com.example.cranesmart.fragment.DashFragment;
 import com.example.cranesmart.fragment.SettingFragment;
-import com.example.cranesmart.fragment.ShopFragment;
 import com.example.cranesmart.fragment.WalletFragment;
 import com.example.cranesmart.pojo.Userdetail.UserDetailpojo;
 import com.example.cranesmart.pojo.cart.Addcartlist;
 import com.example.cranesmart.pojo.cart.CartList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -116,11 +104,11 @@ isInternetOn();
         t_mobile = findViewById(R.id.t_mobile);
         imageprof = findViewById(R.id.imageprof);
 
+        cartlist();
 
 
         l_logout = findViewById(R.id.l_logout);
 
-cartlist();
         navigationView = findViewById(R.id.nav_view);
         menu = findViewById(R.id.menu1);
         menu.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +161,7 @@ cartlist();
             @Override
             public void onClick(View view) {
 
-                Intent itent= new Intent(DashboardActivity.this,AddresslistActivity.class);
+                Intent itent= new Intent(DashboardActivity.this, AdressmenuActivity.class);
                 itent.putExtra("status","1");
                 startActivity(itent);
         }
@@ -408,7 +396,7 @@ cartlist();
             public void onResponse(Call<Addcartlist> call, Response<Addcartlist> response) {
 
 
-                if (response.body().getCartList()==null) {
+                if (response.body().getCartList()==null||response.body().getCartList().isEmpty()) {
                     cartitem.setVisibility(View.GONE);
 
                 } else {
@@ -508,11 +496,17 @@ cartlist();
             @Override
             public void onResponse(Call<UserDetailpojo> call, Response<UserDetailpojo> response) {
 //                progressDialog.dismiss();
+
                 if(response.body().getUserDetail().getProfilePhoto()!=null||response.body().getUserDetail().getName()!=null){
                 Glide.with(DashboardActivity.this).load(APIUrl.IMG_URL+response.body().getUserDetail().getProfilePhoto()).placeholder(R.drawable.circleimg1).into(imageprof);
                 String nameurl=response.body().getUserDetail().getName().toString().trim();
                 t_name.setText(nameurl);
                     t_mobile.setText("+91"+response.body().getUserDetail().getMobile().toString().trim());
+                    SharedPreferences pref = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=pref.edit();
+                    editor.putString("Dashboardname",nameurl);
+                    editor.apply();
+                    editor.commit();
                }
                 else{
                     Toast.makeText(DashboardActivity.this, "null pointer expecption is there", Toast.LENGTH_SHORT).show();
