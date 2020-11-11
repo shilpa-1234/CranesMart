@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:weightSum="2"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:textSize="19dp"
+        android:id="@+id/text1"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:textColor="#000"
+        android:text="Select One Option To Pay Money"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/text"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:textColor="#000"
+        android:text="You Have To Select one Option From It To Pay Money"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<RadioGroup
+    android:orientation="vertical"
+    android:layout_marginRight="@dimen/dimen_20dp"
+    android:layout_marginLeft="@dimen/dimen_20dp"
+    android:layout_marginTop="@dimen/dimen_20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RadioButton
+        android:drawableRight="@drawable/logo05"
+        android:id="@+id/radio"
+        android:checked="true"
+        android:buttonTint="@color/blue"
+        android:textColor="#000"
+        android:text="Cranes Mart Wallet"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <RadioButton
+        android:drawableRight="@drawable/maestro01"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:id="@+id/radio1"
+        android:checked="false"
+        android:buttonTint="@color/blue"
+        android:textColor="#000"
+        android:text="Pay By Card"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RadioGroup>
+    <Button
+        android:id="@+id/proceed"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:text="Proceed"
+        android:textSize="@dimen/dimen_15dp"
+        android:textColor="@color/white"
+        android:background="@color/btnbg"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/dimen_35dp"/>
+</LinearLayout>

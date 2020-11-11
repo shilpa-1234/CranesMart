@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:background="#fafafa">
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardBackgroundColor="@color/white"
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:elevation="4dp"
+        android:paddingTop="2dp"
+        android:background="?attr/selectableItemBackground">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0.5dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="4dp"
+                android:background="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/item_layout"
+                app:layout_constraintEnd_toEndOf="@+id/amount1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/item_layout"
+                app:layout_constraintTop_toTopOf="@+id/item_layout" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/producty"
+                android:id="@+id/txt_Amount"
+                android:layout_width="@dimen/dimen_45dp"
+                android:layout_height="@dimen/dimen_45dp"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:layout_marginEnd="2dp"
+                android:gravity="center"
+                android:text="$50000"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/item_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@id/item_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:minHeight="80dp"
+                android:layout_marginRight="70dp">
+
+                <ImageView
+                    android:src="@drawable/verticalline"
+                    android:id="@+id/txt_type"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="9dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_10dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:foregroundGravity="center"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="4dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:minHeight="180dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginStart="4dp">
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp">
+
+
+                        <TextView
+                            android:id="@+id/txt_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"
+                            android:text="0000000000"
+                            android:textColor="#000"
+                            android:textSize="@dimen/dimen_12dp"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/worksans_medium"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/worksans_medium"
+                            android:text="Recharge of 0000"
+                            android:textColor="#454343"
+                            android:textSize="10dp" />
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recharge of 0000"
+                            android:layout_marginTop="2dp"
+                            android:textColor="#454343"
+                            android:textSize="@dimen/dimen_10dp"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/worksans_medium"/>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recharge of 0000"
+                            android:layout_marginTop="2dp"
+                            android:textColor="#454343"
+                            android:textSize="@dimen/dimen_10dp"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/worksans_medium"/>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="#777"
+                android:foregroundGravity="bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/item_layout"
+                app:layout_constraintTop_toTopOf="@+id/item_layout"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</FrameLayout>

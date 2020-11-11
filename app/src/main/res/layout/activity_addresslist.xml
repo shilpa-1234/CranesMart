@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#fafafa"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AddresslistActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:weightSum="2"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@mipmap/topbg"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.4"
+            android:id="@+id/menu"
+            android:layout_width="25dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="4dp"
+            android:paddingLeft="0dp"
+            android:paddingTop="10dp"
+            android:paddingRight="00dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="#000" />
+
+        <ImageView
+            android:padding="@dimen/dimen_12dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.20"
+            android:layout_width="80dp"
+            android:layout_height="47dp"
+            android:layout_marginLeft="00dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/li"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_weight="3"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:textColor="#777"
+            android:layout_weight=".8"
+            android:textSize="15dp"
+            android:text="Cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_marginTop="6dp"
+            android:layout_weight=".3"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            app:tint="#777" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_weight=".8"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:text="Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_marginTop="6dp"
+            android:layout_weight=".3"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            app:tint="#777" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_weight=".8"
+            android:textSize="15dp"
+            android:textColor="#777"
+            android:text="Payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:paddingBottom="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_1dp"
+android:layout_marginBottom="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardBackgroundColor="#fafafafa"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+        <RelativeLayout
+            android:backgroundTint="@color/colorWhite"
+            android:id="@+id/relative1"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/profileimg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/myprofile"
+                android:textColor="@color/opaque_black"
+                android:text="Add New Address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/move"
+                android:layout_marginTop="12dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="17dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                app:tint="#777" />
+        </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/recyleaddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:splitMotionEvents="false"
+                android:paddingTop="@dimen/dimen_4dp"
+>
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

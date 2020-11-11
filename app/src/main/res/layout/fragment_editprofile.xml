@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fafafa"
+    android:orientation="vertical"
+    tools:context=".fragment.EditprofileFragment">
+    <FrameLayout
+        android:id="@+id/editframe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:background="#fafafa"
+        android:orientation="vertical"
+        tools:context=".fragment.EditprofileFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<RelativeLayout
+    android:paddingBottom="20dp"
+    android:background="#fafafa"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="#fafafa"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="2dp"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#fafafa"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/profile"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:text="Profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                       <EditText
+                           android:id="@+id/view"
+                           android:layout_below="@+id/profile"
+                           android:backgroundTint="#D5CFCF"
+                           android:background="#777"
+                           android:layout_marginTop="10dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileimg"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/view"
+                    android:layout_gravity="center"
+                    android:src="@drawable/download"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"/>
+                <RelativeLayout
+                    android:id="@+id/relative1"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@+id/profileimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/myprofile"
+                    android:textColor="#000"
+                    android:text="My Profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/editprofile"
+                    android:textColor="#777"
+                    android:text="Edit Profile"
+                    android:layout_below="@+id/myprofile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:layout_marginBottom="1dp"
+                        android:id="@+id/view1"
+                        android:layout_below="@+id/editprofile"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relative2"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@+id/relative1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/orders"
+                        android:textColor="#000"
+                        android:text="My Orders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Manage"
+                        android:textColor="#777"
+                        android:text="manage your current and past orders"
+                        android:layout_below="@+id/orders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move1"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:id="@+id/view2"
+                        android:layout_below="@+id/Manage"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relative40"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@+id/relative2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/address"
+                        android:textColor="#000"
+                        android:text="My Address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/add"
+                        android:textColor="#777"
+                        android:text="add your address here"
+                        android:layout_below="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move0"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:id="@+id/view20"
+                        android:layout_below="@+id/add"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative3"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@+id/relative40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/returns"
+                        android:textColor="#000"
+                        android:text="My Recharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/recent"
+                        android:textColor="#777"
+                        android:text="view your recent recharge"
+                        android:layout_below="@+id/returns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move2"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:id="@+id/view3"
+                        android:layout_below="@+id/recent"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relative4"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_below="@+id/relative3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/cranesmart"
+                        android:textColor="#000"
+                        android:text="Change password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/credits"
+                        android:textColor="#777"
+                        android:text="you can change your password here"
+                        android:layout_below="@+id/cranesmart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move3"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:id="@+id/view4"
+                        android:layout_below="@+id/credits"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relative5"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingBottom="10dp"
+android:layout_marginBottom="10dp"
+                    android:layout_below="@+id/relative4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/wishlist"
+                        android:textColor="#000"
+                        android:text="My Wishlist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Mywishlist"
+                        android:textColor="#777"
+                        android:text="view your cranes mart transaction"
+                        android:layout_below="@+id/wishlist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/move4"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="#777" />
+                    <EditText
+                        android:id="@+id/view5"
+                        android:layout_below="@+id/Mywishlist"
+                        android:backgroundTint="#777"
+                        android:background="#777"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</RelativeLayout>
+    </LinearLayout>
+    </FrameLayout>
+</ScrollView>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".fragment.MobilerechargeFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+<LinearLayout
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dimen_35dp"
+    android:orientation="horizontal"
+    android:background="@color/white">
+    <RadioGroup
+
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:buttonTint="@color/blue"
+            android:layout_marginRight="@dimen/dimen_5dp"
+            android:textColor="@color/opaque_black"
+            android:id="@+id/radioprepaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prepaid"
+            android:checked="true"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:textColor="@color/opaque_black"
+            android:buttonTint="@color/blue"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+
+            android:id="@+id/radiopostpaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Postpaid"
+            android:textSize="20dp" />
+    </RadioGroup>
+</LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginTop="-5dp"
+                        android:layout_width="@dimen/dimen_50dp"
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:text="+91"
+                        android:textColor="#000" />
+                  <com.google.android.material.textfield.TextInputLayout
+                      android:backgroundTint="#BFBCBC"
+                      android:textColorHint="#777777"
+                      android:id="@+id/mobile"
+                      android:layout_marginLeft="-25dp"
+                      android:layout_marginTop="-20dp"
+                      android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                      <EditText
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:maxLength="10"
+                        android:inputType="number"
+                        android:backgroundTint="#BFBCBC"
+                        android:id="@+id/mobilenumber"
+                        android:textSize="15dp"
+                        android:textColorHint="@color/opaque_black"
+                        android:textColor="@color/opaque_black"
+                        android:hint="Enter Your mobile number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:backgroundTint="#BFBCBC"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="-20dp"
+                    android:textColorHint="#777777"
+                    android:id="@+id/acnmner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <EditText
+                    android:inputType="number"
+                    android:backgroundTint="#BFBCBC"
+                    android:id="@+id/accnumer"
+                    android:textSize="15dp"
+                    android:textColorHint="@color/opaque_black"
+                    android:textColor="@color/opaque_black"
+                    android:hint="Enter Your ac number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:backgroundTint="#BFBCBC"
+                    android:textColorHint="#777777"
+                    android:id="@+id/oper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:id="@+id/opreator"
+                    android:drawableRight="@drawable/ccp_down_arrow"
+                    android:textSize="15dp"
+                    android:textColorHint="@color/opaque_black"
+                    android:textColor="@color/opaque_black"
+                    android:hint="Select Operator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:background="#C5C1C1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:backgroundTint="#BFBCBC"
+                    android:textColorHint="#777777"
+                    android:id="@+id/circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:id="@+id/code"
+                    android:drawableRight="@drawable/ccp_down_arrow"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:textSize="15dp"
+                    android:textColorHint="@color/opaque_black"
+                    android:textColor="@color/opaque_black"
+                    android:hint="Circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:background="#C5C1C1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:backgroundTint="#BFBCBC"
+                    android:textColorHint="#777777"
+                android:id="@+id/amounm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:backgroundTint="#D6CFCF"
+                    android:id="@+id/Amount"
+                    android:layout_weight="2"
+                    android:textSize="15dp"
+                    android:textColorHint="@color/opaque_black"
+                    android:textColor="@color/opaque_black"
+                    android:hint="Amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+                <Button
+                    android:textStyle="normal"
+                    android:textColor="#fafafa"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="-40dp"
+                    android:textSize="@dimen/dimen_12dp"
+                    android:text="view plans"
+                    android:backgroundTint="@color/btnbg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_35dp"/>
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:buttonTint="@color/opaque_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:textColor="@color/opaque_black"
+                    android:text="Fast Forward Recharge?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+                <Button
+                    android:id="@+id/proceed"
+                    android:padding="@dimen/dimen_10dp"
+                    android:background="@drawable/rectangle"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/dimen_12dp"
+                    android:text="Proceed to Recharge"
+                    android:backgroundTint="@color/btnbg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_40dp"/>
+            </LinearLayout>
+<!--        </androidx.cardview.widget.CardView>-->
+    </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

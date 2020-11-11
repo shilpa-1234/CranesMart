@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/invisible"
+        android:layout_width="402dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="2dp"
+        android:paddingTop="20dp"
+
+        app:cardBackgroundColor="#fafafa"
+        app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginTop="-5dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/deletecart" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/wallet3"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/producty" />
+
+            <TextView
+                android:id="@+id/Smart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/wallet3"
+                android:lines="1"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:text="Cotton t-shirts"
+                android:textColor="@color/blue"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:visibility="gone"
+                android:layout_marginLeft="-3dp"
+                android:layout_marginTop="2dp"
+                android:id="@+id/colorcode"
+                android:layout_width="@dimen/dimen_15dp"
+                android:layout_height="@dimen/dimen_15dp"
+                android:layout_below="@+id/Smart"
+                android:layout_toRightOf="@+id/wallet3"
+                android:background="@drawable/ic_baseline_brightness_1_24"
+                android:drawablePadding="5dp"
+                app:tint="#fafafa" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Smart"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/colorcode"
+                android:drawablePadding="5dp"
+                android:drawableTint="#000"
+                android:text=""
+                android:textColor="#777"
+                android:textSize="13dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Smart"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:layout_toRightOf="@+id/color"
+                android:drawablePadding="5dp"
+                android:drawableTint="#000"
+                android:text=""
+                android:textColor="#777"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/size"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/wallet3"
+                android:text="Rs.499.00"
+                android:textColor="#000"
+                android:textSize="13dp" />
+               <TextView
+                android:id="@+id/price1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/wallet3"
+                android:text="-Cmpoint-31"
+                android:textColor="#ED5151"
+                android:textSize="13dp" />
+               <TextView
+                android:id="@+id/price2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price1"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/wallet3"
+                android:text="Rs.499.00"
+                android:textColor="#000"
+                android:textSize="13dp" />
+            <TextView
+                android:id="@+id/price3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price2"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/wallet3"
+                android:text="+Cmpoint+31"
+                android:textColor="#516E30"
+                android:textSize="13dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp">
+
+                <ImageView
+                    android:id="@+id/plus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/plus" />
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/plus"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/number"
+                    android:gravity="center_horizontal"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:id="@+id/minus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/number"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/mainus" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

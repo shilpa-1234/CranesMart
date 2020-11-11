@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".Activity.OrderActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:paddingTop="2dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:background="?attr/selectableItemBackground">
+    <TextView
+        android:id="@+id/order"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:layout_marginBottom="@dimen/dimen_4dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:textSize="@dimen/dimen_15dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:text="My Orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:background="#CAC4C4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+        <TextView
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/text"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginBottom="@dimen/dimen_4dp"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:textSize="@dimen/dimen_15dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:text="No Record Found Here "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:id="@+id/swipetorefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycleorders"
+    android:layout_marginBottom="@dimen/dimen_20dp"
+    android:layout_marginRight="@dimen/dimen_20dp"
+    android:layout_marginLeft="@dimen/dimen_20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>
